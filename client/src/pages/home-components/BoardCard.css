@@ -1,0 +1,18 @@
+.board-card-container {
+    margin: 5px;
+    width: 200px;
+}
+
+.board-img {
+    width: 100%;
+}
+
+.board-button {
+    width: 40%;
+    padding: 0px;
+}
+
+h6 {
+    margin: 0px;
+    padding: 0px;
+}
