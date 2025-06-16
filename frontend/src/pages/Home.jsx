@@ -1,7 +1,7 @@
 import React from "react";
 import "./Home.css";
-import BoardFilter from "./home-components/BoardFilter";
-import BoardList from "./home-components/BoardList";
+import BoardList from "../components/home-components/BoardList";
+import ControlBar from "../components/home-components/ControlBar";
 
 const Home = () => {
   // Need an initial list
@@ -9,7 +9,7 @@ const Home = () => {
 
   return (
     <div className="home-container">
-      <BoardFilter />
+      <ControlBar />
       <BoardList />
     </div>
   );

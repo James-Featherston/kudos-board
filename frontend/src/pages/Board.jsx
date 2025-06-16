@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import "./Board.css";
+import CardList from "../components/board-components/CardList";
 
 const boards = [
   { id: 1, title: "hello", type: "celebration" },
@@ -17,9 +18,6 @@ const Board = () => {
   const [cards, setCards] = useState(null);
   const [board, setBoard] = useState(null);
   const { id } = useParams();
-  if (cards === null || board === null) {
-    return;
-  }
 
   const getBoard = () => {
     setBoard(boards.find((board) => board.id === parseInt(id)));
@@ -32,11 +30,14 @@ const Board = () => {
     getBoard();
     getCards();
   }, []);
+  if (cards === null || board === null) {
+    return <h1>Loading...</h1>;
+  }
   return (
     <div className="board-container">
       <h2>{board?.title} </h2>
       <button>Create a Card</button>
-      {cards.map}
+      <CardList />
     </div>
   );
 };

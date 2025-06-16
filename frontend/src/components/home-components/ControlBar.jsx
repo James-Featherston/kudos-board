@@ -4,7 +4,7 @@ import Search from "./Search";
 
 // On a search or filter, the app should rerun the search/filter method using the allBoards value
 
-const BoardFilter = () => {
+const ControlBar = () => {
   const [query, setQuery] = useState("");
   const [filterType, setFilterType] = useState("");
 
@@ -26,4 +26,4 @@ const BoardFilter = () => {
   );
 };
 
-export default BoardFilter;
+export default ControlBar;
