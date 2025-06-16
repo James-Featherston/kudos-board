@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import "./NewCardForm.css";
 const NewCardForm = () => {
   const [title, setTitle] = useState("");
   const [description, setDesciption] = useState("");
@@ -25,20 +25,23 @@ const NewCardForm = () => {
           value={title}
           onChange={(e) => setTitle(e.target.value)}
           placeholder="Enter card title"
+          className="input-field"
         />
         <input
           type="text"
           value={description}
           onChange={(e) => setDesciption(e.target.value)}
           placeholder="Enter card desciption"
+          className="input-field"
         />
         <input
           type="text"
           value={gif}
           onChange={(e) => setGif(e.target.value)}
           placeholder="Search GIFs..."
+          className="input-field"
         />
-        <button type="button" onClick={handleSearch}>
+        <button type="button" className="card-btn" onClick={handleSearch}>
           Search
         </button>
         <input
@@ -46,14 +49,18 @@ const NewCardForm = () => {
           value={gifURL}
           onChange={(e) => setGifURL(e.target.value)}
           placeholder="Enter GIF URL"
+          className="input-field"
         />
         <input
           type="text"
           value={author}
           onChange={(e) => setAuthor(e.target.value)}
           placeholder="Enter owner (optional)"
+          className="input-field"
         />
-        <button type="submit">Create Card</button>
+        <button className="card-btn" type="submit">
+          Create Card
+        </button>
       </form>
     </>
   );

@@ -1,5 +1,17 @@
-.board-form {
+.card-form {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    width: 80%;
+}
+
+.input-field {
+    width: 100%;
+    margin: 10px 0px;
+}
+
+.card-btn {
+    width: 60%;
+    align-self: center;
+    min-width: 200px
 }

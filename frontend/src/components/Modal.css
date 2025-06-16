@@ -17,14 +17,15 @@
     padding: 20px;
     border: 1px solid #888;
     width: 60%;
+    max-width: 600px;
     border-radius: 10px;
     position: relative;
     margin-bottom: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
-    display: flex;
     flex-direction: column;
+
 }
 
 .close-btn {

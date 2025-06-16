@@ -17,8 +17,11 @@ const Filter = (props) => {
       <button onClick={handleFilter} value={"Celebration"}>
         Celebration
       </button>
-      <button onClick={handleFilter} value={"Clear"}>
-        Clear
+      <button onClick={handleFilter} value={"Thank You"}>
+        Thank You
+      </button>
+      <button onClick={handleFilter} value={"Inspiration"}>
+        Inspiration
       </button>
     </div>
   );

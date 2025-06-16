@@ -20,26 +20,30 @@ const NewBoardForm = () => {
           type="text"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
+          className="input-field"
         />
         <label>Category:</label>
         <input
           type="text"
           value={category}
           onChange={(e) => setCategory(e.target.value)}
+          className="input-field"
         />
         <label>Author:</label>
         <input
           type="text"
           value={author}
           onChange={(e) => setAuthor(e.target.value)}
+          className="input-field"
         />
         <label>Image URL:</label>
         <input
           type="text"
           value={image}
           onChange={(e) => setImage(e.target.value)}
+          className="input-field"
         />
-        <button>Create Board</button>
+        <button className="create-btn">Create Board</button>
       </form>
     </>
   );
