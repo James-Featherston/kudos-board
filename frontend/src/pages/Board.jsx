@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import "./Board.css";
 import CardList from "../components/board-components/CardList";
+import Modal from "../components/Modal";
 
 const boards = [
   { id: 1, title: "hello", type: "celebration" },
@@ -38,6 +39,7 @@ const Board = () => {
       <h2>{board?.title} </h2>
       <button>Create a Card</button>
       <CardList />
+      <Modal />
     </div>
   );
 };

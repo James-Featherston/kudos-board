@@ -13,7 +13,12 @@ const Search = (props) => {
   };
   return (
     <form onSubmit={onSearch}>
-      <input type="text" value={props.query} onChange={handleSearchChange} />
+      <input
+        type="text"
+        value={props.query}
+        onChange={handleSearchChange}
+        placeholder="Search Boards..."
+      />
       <button className="search-button" type="submit">
         Search
       </button>
