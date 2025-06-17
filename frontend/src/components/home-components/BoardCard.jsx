@@ -8,14 +8,14 @@ const BoardCard = ({ data }) => {
       <img className="board-img" src={emptyImg} alt="Board Image" />
       <h3>{data.title}</h3>
       <h5>{data.type}</h5>
-      <div style={{ width: "100%" }}>
+      <div style={{ width: "100%", marginTop: "10px" }}>
         <button className="board-button">
           <a href={`boards/${data.id}`}>
-            <h6>View Board</h6>
+            <h5>View Board</h5>
           </a>
         </button>
         <button className="board-button">
-          <h6>Delete Board</h6>
+          <h5>Delete Board</h5>
         </button>
       </div>
     </div>

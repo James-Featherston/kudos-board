@@ -3,21 +3,14 @@ import "./Modal.css";
 import NewBoardForm from "./home-components/NewBoardForm";
 import NewCardForm from "./board-components/NewCardForm";
 
-const Modal = ({ modalType }) => {
-  const [modal, setModal] = useState(false);
-  const handleClose = () => {
-    setModal(false);
-  };
-  if (!modal) {
-    return <></>;
-  }
+const Modal = ({ modalType, handleClose }) => {
   return (
-    <div onClick={handleClose} className="modal-background">
+    <div onClick={() => handleClose(false)} className="modal-background">
       <article
         onClick={(event) => event.stopPropagation()}
         className="modal-container"
       >
-        <span className="close-btn" onClick={handleClose}>
+        <span className="close-btn" onClick={() => handleClose(false)}>
           x
         </span>
         {modalType === "Home" ? <NewBoardForm /> : <NewCardForm />}

@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import "./Board.css";
 import CardList from "../components/board-components/CardList";
 import Modal from "../components/Modal";
+import ChevronLeft from "../assets/chevron-left.webp";
 
 const boards = [
   { id: 1, title: "hello", type: "celebration" },
@@ -10,36 +11,36 @@ const boards = [
   { id: 3, title: "hello", type: "Inspiration" },
 ];
 
-const cards_temp = [
-  { id: 1, title: "title", descrition: "Description", votes: 0 },
-  { id: 2, title: "title", descrition: "Description", votes: 0 },
-];
-
 const Board = () => {
-  const [cards, setCards] = useState(null);
+  const [modal, setModal] = useState(false);
   const [board, setBoard] = useState(null);
   const { id } = useParams();
 
   const getBoard = () => {
     setBoard(boards.find((board) => board.id === parseInt(id)));
   };
-  const getCards = () => {
-    setCards(cards_temp);
-  };
 
   useEffect(() => {
     getBoard();
-    getCards();
   }, []);
-  if (cards === null || board === null) {
+  if (board === null) {
     return <h1>Loading...</h1>;
   }
   return (
     <div className="board-container">
-      <h2>{board?.title} </h2>
-      <button>Create a Card</button>
+      <a href="/">
+        <img
+          className="chevron-left"
+          src={ChevronLeft}
+          alt="Return to Home button"
+        />
+      </a>
+      <h2>
+        {board?.title} {id}
+      </h2>
+      <button onClick={() => setModal(true)}>Create a Card</button>
       <CardList />
-      <Modal />
+      {modal ? <Modal handleClose={setModal} /> : <></>}
     </div>
   );
 };

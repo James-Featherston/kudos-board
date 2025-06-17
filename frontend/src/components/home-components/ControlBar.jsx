@@ -4,7 +4,7 @@ import Search from "./Search";
 
 // On a search or filter, the app should rerun the search/filter method using the allBoards value
 
-const ControlBar = () => {
+const ControlBar = ({ openModal }) => {
   const [query, setQuery] = useState("");
   const [filterType, setFilterType] = useState("");
 
@@ -20,7 +20,7 @@ const ControlBar = () => {
         setFilterType={setFilterType}
       />
       <div>
-        <button>Create</button>
+        <button onClick={() => openModal(true)}>Create</button>
       </div>
     </section>
   );

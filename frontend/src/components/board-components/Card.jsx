@@ -9,6 +9,14 @@ const Card = ({ data }) => {
       <p>{data.description}</p>
       <img className="card-img" src={tempImg} alt="Card Gif" />
       <p>Creator</p>
+      <div className="card-btns-container">
+        <button className="card-button">
+          <h6>Upvote: 500</h6>
+        </button>
+        <button className="card-button">
+          <h6>Delete</h6>
+        </button>
+      </div>
     </article>
   );
 };

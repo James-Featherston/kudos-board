@@ -1,5 +1,4 @@
 import React from "react";
-
 const Search = (props) => {
   const onSearch = (event) => {
     event.preventDefault();
@@ -18,6 +17,8 @@ const Search = (props) => {
         value={props.query}
         onChange={handleSearchChange}
         placeholder="Search Boards..."
+        className="submit-input"
+        style={{ width: "400px", minWidth: "100px" }}
       />
       <button className="search-button" type="submit">
         Search

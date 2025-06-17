@@ -5,7 +5,6 @@ const NewBoardForm = () => {
   const [title, setTitle] = useState("");
   const [category, setCategory] = useState("");
   const [author, setAuthor] = useState("");
-  const [image, setImage] = useState("");
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -34,13 +33,6 @@ const NewBoardForm = () => {
           type="text"
           value={author}
           onChange={(e) => setAuthor(e.target.value)}
-          className="input-field"
-        />
-        <label>Image URL:</label>
-        <input
-          type="text"
-          value={image}
-          onChange={(e) => setImage(e.target.value)}
           className="input-field"
         />
         <button className="create-btn">Create Board</button>
