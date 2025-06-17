@@ -31,7 +31,7 @@ model Card {
   description String
   gif         String
   author      String
-  upVotes     String
+  upVotes     Int       @default(0)
   boardId     Int
   board       Board     @relation(fields: [boardId], references: [id], onDelete: Cascade)
   comments    Comment[]

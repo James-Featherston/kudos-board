@@ -6,9 +6,9 @@ exports.getAllBoards = async (filters) => {
     })
 }
 
-exports.getSingleBoard = async (idObj) => {
+exports.getSingleBoard = async (boardId) => {
     const board =  await prisma.board.findUnique({
-        where: idObj
+        where: {id : boardId}
     })
     if (board === null) {
         throw Error
@@ -26,12 +26,22 @@ exports.createBoard = async (newBoard) => {
     return resBoard
 }
 
-exports.deleteBoard = async (idObj) => {
+exports.deleteBoard = async (boardId) => {
     const delBoard = await prisma.board.delete({
-        where: idObj
+        where: {id : boardId}
     })
     if (delBoard === null) {
         throw Error
     }
     return delBoard
+}
+
+exports.getBoardCards = async (boardId) => {
+    const cards = await prisma.card.findMany({
+        where: {boardId: boardId}
+    })
+    if (cards === null) {
+        throw Error
+    }
+    return cards
 }

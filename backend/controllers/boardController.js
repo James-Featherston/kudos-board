@@ -14,9 +14,8 @@ exports.getAllBoards = async (req, res) => {
 exports.getBoardById = async (req, res) => {
     try {
         const boardId  = parseInt(req.params.boardId)
-        const idObj = {id: boardId}
-        const boards = await boardService.getSingleBoard(idObj)
-        res.json(boards)
+        const board = await boardService.getSingleBoard(boardId)
+        res.json(board)
     } catch (error) {
         res.status(404).json({message: "Board not found"})
     }
@@ -40,17 +39,19 @@ exports.createBoard = async (req, res) => {
 exports.deleteBoard = async(req, res) => {
     try {
         const boardId  = parseInt(req.params.boardId)
-        const idObj = {id: boardId}
-        const board = await boardService.deleteBoard(idObj)
+        const board = await boardService.deleteBoard(boardId)
         res.json(board)
     } catch (error) {
         res.status(404).json({message: "Board not deleted"})
     }
 }
 
-exports.getPostsByBoardId = async(req, res) => {
-    // const posts = await prisma.card.findMany({
-    //     where: {boardId: 1}
-    // })
-    res.json(posts)
+exports.getCardsByBoardId = async(req, res) => {
+    try {
+        const boardId = parseInt(req.params.boardId)
+        const cards = await boardService.getBoardCards(boardId)
+        res.json(cards)
+    } catch (error) {
+        res.status(404).json({message: "Cards not found"})
+    }
 }
