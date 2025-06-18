@@ -47,3 +47,13 @@ exports.getCommentsByCardId = async (req, res) => {
         res.status(404).json({message: "Comments not found"})
     }
 }
+
+exports.updateCard = async (req, res) => {
+    try {
+        const cardId = parseInt(req.params.cardId)
+        const card = await cardService.updateCard(cardId)
+        res.json(card)
+    } catch (error) {
+        res.status(404).json({message: "Card not updated"})
+    }
+}

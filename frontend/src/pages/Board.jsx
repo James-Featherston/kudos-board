@@ -4,24 +4,19 @@ import "./Board.css";
 import CardList from "../components/board-components/CardList";
 import Modal from "../components/Modal";
 import ChevronLeft from "../assets/chevron-left.webp";
-
-const boards = [
-  { id: 1, title: "hello", type: "celebration" },
-  { id: 2, title: "hello", type: "thank you" },
-  { id: 3, title: "hello", type: "Inspiration" },
-];
+import { getSingleBoard } from "../utils/services";
 
 const Board = () => {
   const [modal, setModal] = useState(false);
   const [board, setBoard] = useState(null);
   const { id } = useParams();
 
-  const getBoard = () => {
-    setBoard(boards.find((board) => board.id === parseInt(id)));
+  const fetchBoard = async () => {
+    setBoard(await getSingleBoard(id));
   };
 
   useEffect(() => {
-    getBoard();
+    fetchBoard();
   }, []);
   if (board === null) {
     return <h1>Loading...</h1>;
@@ -39,7 +34,7 @@ const Board = () => {
         {board?.title} {id}
       </h2>
       <button onClick={() => setModal(true)}>Create a Card</button>
-      <CardList />
+      <CardList boardId={id} />
       {modal ? <Modal handleClose={setModal} /> : <></>}
     </div>
   );

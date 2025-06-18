@@ -8,10 +8,10 @@ const Card = ({ data }) => {
       <h3>{data.title}</h3>
       <p>{data.description}</p>
       <img className="card-img" src={tempImg} alt="Card Gif" />
-      <p>Creator</p>
+      <p>{data.author}</p>
       <div className="card-btns-container">
         <button className="card-button">
-          <h6>Upvote: 500</h6>
+          <h6>Upvote: {data.upVotes}</h6>
         </button>
         <button className="card-button">
           <h6>Delete</h6>
