@@ -2,15 +2,21 @@ const boardService = require('../services/boardService')
 
 exports.getAllBoards = async (req, res) => {
     try {
-        const {category, search} = req.body
         const filters = {}
-        if (category) {
-            filters.category = category
+        let max_results = 100
+        if (req.query) {
+            const {category, search, limit} = req.query
+            if (category) {
+                filters.category = category
+            }
+            if (search) {
+                filters.search = search
+            }
+            if (limit) {
+                max_results = parseInt(limit)
+            }
         }
-        if (search) {
-            filters.search = search
-        }
-        const boards = await boardService.getAllBoards(filters)
+        const boards = await boardService.getAllBoards(filters, max_results)
         res.json(boards)
     } catch (error) {
         res.status(404).json({message: "Internal Server Error"})

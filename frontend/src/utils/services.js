@@ -1,10 +1,24 @@
-const BASE_URL = "https://kudos-board-backend-ta4c.onrender.com"
+// const BASE_URL = "https://kudos-board-backend-ta4c.onrender.com"
+const BASE_URL = "http://localhost:3000"
 const basic_get_request = {
     method: 'GET'
 }
 
-const getAllBoards = async () => {
-    const path = `${BASE_URL}/boards`
+const getAllBoards = async (query, filterType) => {
+
+    const filters = {}
+    if (query) {
+        filters.search = query
+    }
+    if (filterType) {
+        if (filterType === "Recent") {
+            filters.limit = 6
+        }  else {
+            filters.category = filterType
+        }
+    }
+    const urlParams = new URLSearchParams(filters)
+    const path = `${BASE_URL}/boards?${urlParams.toString()}`
     return await fetchData(path, basic_get_request)
 }
 

@@ -1,16 +1,19 @@
 import React, { useState } from "react";
 import Filter from "./Filter";
 import Search from "./Search";
+import { getAllBoards } from "../../utils/services";
+import { useBoardsContext } from "../../contexts/BoardsContext";
 
 // On a search or filter, the app should rerun the search/filter method using the allBoards value
 
 const ControlBar = ({ openModal }) => {
   const [query, setQuery] = useState("");
   const [filterType, setFilterType] = useState("");
-
-  const changeData = () => {
-    console.log("Changing display data");
+  const { setBoards } = useBoardsContext();
+  const changeData = async () => {
+    setBoards(await getAllBoards(query, filterType));
   };
+
   return (
     <section>
       <Search changeData={changeData} query={query} setQuery={setQuery} />

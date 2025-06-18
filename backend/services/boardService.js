@@ -1,13 +1,17 @@
 const prisma = require('../prisma.js')
 
-exports.getAllBoards = async (filters) => {
+exports.getAllBoards = async (filters, limit) => {
     return await prisma.board.findMany({
+        take: limit,
         where: {
             category : filters.category,
             title : {
-                contains : filters.search
-            }
-        }
+                contains : filters.search,
+            },
+        },
+        orderBy: {
+            createdAt: 'desc',
+        },
     })
 }
 

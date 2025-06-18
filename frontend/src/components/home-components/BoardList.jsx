@@ -17,6 +17,9 @@ const BoardList = () => {
   if (!boards) {
     return <h1>Loading...</h1>;
   }
+  if (boards.length === 0) {
+    return <h1>No results</h1>;
+  }
   return (
     <div className="board-list-container">
       {boards.map((board) => {

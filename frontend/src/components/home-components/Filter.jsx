@@ -1,14 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 const Filter = (props) => {
   const handleFilter = (event) => {
-    console.log(event.target.value);
-    props.changeData();
+    props.setFilterType(event.target.value);
   };
+
+  useEffect(() => {
+    props.changeData();
+  }, [props.filterType]);
 
   return (
     <div className="filter-container">
-      <button onClick={handleFilter} value={"All"}>
+      <button onClick={handleFilter} value={""}>
         All
       </button>
       <button onClick={handleFilter} value={"Recent"}>
