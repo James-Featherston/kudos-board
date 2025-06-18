@@ -35,7 +35,7 @@ const Board = () => {
       </h2>
       <button onClick={() => setModal(true)}>Create a Card</button>
       <CardList boardId={id} />
-      {modal ? <Modal handleClose={setModal} /> : <></>}
+      {modal ? <Modal handleClose={setModal} boardId={id} /> : <></>}
     </div>
   );
 };

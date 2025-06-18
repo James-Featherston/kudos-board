@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost:3000"
+const BASE_URL = "https://kudos-board-backend-ta4c.onrender.com"
 const basic_get_request = {
     method: 'GET'
 }
@@ -38,17 +38,25 @@ const deleteBoard = async (boardId) => {
     return await fetchData(path, req)
 }
 
-/*
+const createCard = async (card) => {
+    const path = `${BASE_URL}/cards`
+    const req = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(card)
+    }
+    return await fetchData(path, req)
+}
 
-{
-  method: 'POST', // or 'PUT' for updating data
-  headers: {
-    'Content-Type': 'application/json', // Indicate that the request body is JSON
-  },
-  body: JSON.stringify({ key: 'value' }) // Convert JSON object to a string
-})
-
-*/
+const deleteCard = async (cardId) => {
+    const path = `${BASE_URL}/cards/${cardId}`
+    const req = {
+        method: 'DELETE',
+    }
+    return await fetchData(path, req)
+}
 
 
 const fetchData = async (path, request) => {
@@ -65,4 +73,4 @@ const fetchData = async (path, request) => {
     return data
 }
 
-export {getAllBoards, getSingleBoard, getCardsWithBoardId, createBoard, deleteBoard}
+export {getAllBoards, getSingleBoard, getCardsWithBoardId, createBoard, deleteBoard, createCard, deleteCard}
