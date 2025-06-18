@@ -2,8 +2,14 @@ const boardService = require('../services/boardService')
 
 exports.getAllBoards = async (req, res) => {
     try {
-        // Need to configure filters
+        const {category, search} = req.body
         const filters = {}
+        if (category) {
+            filters.category = category
+        }
+        if (search) {
+            filters.search = search
+        }
         const boards = await boardService.getAllBoards(filters)
         res.json(boards)
     } catch (error) {
