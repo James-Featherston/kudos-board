@@ -40,18 +40,15 @@ exports.getCardComments = async (cardId) => {
     return comments
 }
 
-exports.updateCard = async (cardId) => {
-    console.log(cardId)
+exports.updateCard = async (cardId, upVotes) => {
     const card = await prisma.card.update({
         where: {id : cardId},
         data : {
-            upVotes : {
-                increment: 1
-            }
+            upVotes : upVotes,
         },
     })
-    console.log(card)
     if (card === null) {
+        console.log("In here")
         throw Error
     }
     return card

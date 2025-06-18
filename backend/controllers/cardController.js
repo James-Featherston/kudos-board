@@ -51,7 +51,8 @@ exports.getCommentsByCardId = async (req, res) => {
 exports.updateCard = async (req, res) => {
     try {
         const cardId = parseInt(req.params.cardId)
-        const card = await cardService.updateCard(cardId)
+        const {upVotes} = req.body
+        const card = await cardService.updateCard(cardId, upVotes)
         res.json(card)
     } catch (error) {
         res.status(404).json({message: "Card not updated"})
