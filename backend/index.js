@@ -4,8 +4,8 @@ const app = express();
 const PORT = 3000
 app.use(express.json())
 app.use(cors())
-const boardRoutes = require('./routes/BoardRoutes')
-const cardRoutes = require('./routes/CardRoutes')
+const boardRoutes = require('./routes/boardRoutes')
+const cardRoutes = require('./routes/cardRoutes')
 
 app.use("/boards", boardRoutes)
 app.use("/cards", cardRoutes)
