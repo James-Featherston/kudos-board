@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import "./Board.css";
 import CardList from "../components/board-components/CardList";
@@ -8,6 +9,7 @@ import { getSingleBoard } from "../utils/services";
 import { CardsProvider } from "../contexts/CardsContext";
 
 const Board = () => {
+  const navigate = useNavigate();
   const [modal, setModal] = useState(false);
   const [board, setBoard] = useState(null);
   const { id } = useParams();
@@ -24,13 +26,12 @@ const Board = () => {
   }
   return (
     <div className="board-container">
-      <a href="/">
-        <img
-          className="chevron-left"
-          src={ChevronLeft}
-          alt="Return to Home button"
-        />
-      </a>
+      <img
+        className="chevron-left"
+        src={ChevronLeft}
+        alt="Return to Home button"
+        onClick={() => navigate("/")}
+      />
       <h2>
         {board?.title} {id}
       </h2>
