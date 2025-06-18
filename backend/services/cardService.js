@@ -48,7 +48,6 @@ exports.updateCard = async (cardId, upVotes) => {
         },
     })
     if (card === null) {
-        console.log("In here")
         throw Error
     }
     return card

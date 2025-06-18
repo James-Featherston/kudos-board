@@ -58,6 +58,19 @@ const deleteCard = async (cardId) => {
     return await fetchData(path, req)
 }
 
+const updateCard = async (cardId, upVotes) => {
+    const path = `${BASE_URL}/cards/${cardId}`
+    const req = {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({upVotes : upVotes})
+    }
+    return await fetchData(path, req)
+
+}
+
 
 const fetchData = async (path, request) => {
     let data = null
@@ -73,4 +86,4 @@ const fetchData = async (path, request) => {
     return data
 }
 
-export {getAllBoards, getSingleBoard, getCardsWithBoardId, createBoard, deleteBoard, createCard, deleteCard}
+export {getAllBoards, getSingleBoard, getCardsWithBoardId, createBoard, deleteBoard, createCard, deleteCard, updateCard}
