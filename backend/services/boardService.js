@@ -27,11 +27,12 @@ exports.getSingleBoard = async (boardId) => {
 
 exports.createBoard = async (newBoard) => {
     const resBoard = await prisma.board.create({
-        data: newBoard
+        data: newBoard,
     })
     if (resBoard === null) {
         throw Error
     }
+    console.log(resBoard)
     return resBoard
 }
 

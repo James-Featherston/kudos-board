@@ -3,12 +3,15 @@ import tempImg from "../../assets/person.png";
 import "./Card.css";
 import { deleteCard } from "../../utils/services";
 import { updateCard } from "../../utils/services";
+import { useCardsContext } from "../../contexts/CardsContext";
 
 const Card = ({ data }) => {
   const [upVotes, setUpVotes] = useState(data.upVotes);
   const [voteStatus, setVoteStatus] = useState(false);
-  const handleDelete = () => {
-    deleteCard(data.id);
+  const { cards, setCards } = useCardsContext();
+  const handleDelete = async () => {
+    const delCard = await deleteCard(data.id);
+    setCards(cards.filter((card) => card.id !== delCard.id));
   };
 
   const handleUpVote = async () => {

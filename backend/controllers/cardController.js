@@ -20,7 +20,6 @@ exports.createCard = async (req, res) => {
         const boardId = parseInt(req.body.boardId)
         const author = req.body.author ? req.body.author : "";
         const newCard = {title, description, gif, boardId, author}
-        console.log(newCard)
         const card = await cardService.createCard(newCard)
         res.json(card)
     } catch (error) {

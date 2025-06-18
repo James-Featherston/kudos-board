@@ -4,13 +4,10 @@ import "./CardList.css";
 import { useEffect } from "react";
 import { useState } from "react";
 import { getCardsWithBoardId } from "../../utils/services";
+import { useCardsContext } from "../../contexts/CardsContext";
 
-const cards = [
-  { id: 1, title: "title", description: "Description", votes: 0 },
-  { id: 2, title: "title", description: "Description", votes: 0 },
-];
 const CardList = ({ boardId }) => {
-  const [cards, setCards] = useState(null);
+  const { cards, setCards } = useCardsContext();
 
   const fetchCards = async () => {
     setCards(await getCardsWithBoardId(boardId));

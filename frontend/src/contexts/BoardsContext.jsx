@@ -3,7 +3,7 @@ import { createContext, useContext, useState } from "react";
 const BoardsContext = createContext();
 
 const BoardsProvider = ({ children }) => {
-  const [boards, setBoards] = useState([]);
+  const [boards, setBoards] = useState(null);
 
   return (
     <BoardsContext.Provider value={{ boards, setBoards }}>

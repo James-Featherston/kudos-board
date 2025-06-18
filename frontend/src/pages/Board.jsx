@@ -5,6 +5,7 @@ import CardList from "../components/board-components/CardList";
 import Modal from "../components/Modal";
 import ChevronLeft from "../assets/chevron-left.webp";
 import { getSingleBoard } from "../utils/services";
+import { CardsProvider } from "../contexts/CardsContext";
 
 const Board = () => {
   const [modal, setModal] = useState(false);
@@ -34,8 +35,10 @@ const Board = () => {
         {board?.title} {id}
       </h2>
       <button onClick={() => setModal(true)}>Create a Card</button>
-      <CardList boardId={id} />
-      {modal ? <Modal handleClose={setModal} boardId={id} /> : <></>}
+      <CardsProvider>
+        <CardList boardId={id} />
+        {modal ? <Modal handleClose={setModal} boardId={id} /> : <></>}
+      </CardsProvider>
     </div>
   );
 };

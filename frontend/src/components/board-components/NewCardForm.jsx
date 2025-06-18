@@ -3,6 +3,7 @@ import "./NewCardForm.css";
 import { searchGifs } from "../../utils/gifService";
 import Gif from "./Gif";
 import { createCard } from "../../utils/services";
+import { useCardsContext } from "../../contexts/CardsContext";
 
 const NewCardForm = ({ boardId }) => {
   const [title, setTitle] = useState("");
@@ -12,7 +13,8 @@ const NewCardForm = ({ boardId }) => {
   const [gifResults, setGifResults] = useState([]);
   const [gifURL, setGifURL] = useState("");
   const [author, setAuthor] = useState("");
-  const handleSubmit = (event) => {
+  const { cards, setCards } = useCardsContext();
+  const handleSubmit = async (event) => {
     event.preventDefault();
     const card = {
       title,
@@ -21,7 +23,8 @@ const NewCardForm = ({ boardId }) => {
       author,
       boardId,
     };
-    createCard(card);
+    const res = await createCard(card);
+    setCards([res, ...cards]);
   };
 
   const handleSearch = async () => {

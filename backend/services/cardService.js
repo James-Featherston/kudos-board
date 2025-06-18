@@ -17,6 +17,7 @@ exports.createCard = async (newCard) => {
     if (resCard === null) {
         throw Error
     }
+    console.log(resCard)
     return resCard
 }
 

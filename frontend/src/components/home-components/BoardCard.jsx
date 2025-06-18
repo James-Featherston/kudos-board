@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./BoardCard.css";
 import emptyImg from "../../assets/person.png";
 import { deleteBoard } from "../../utils/services";
+import { useBoardsContext } from "../../contexts/BoardsContext";
 
 const BoardCard = ({ data }) => {
+  const { boards, setBoards } = useBoardsContext();
   const handleDelete = async () => {
     const deleted = await deleteBoard(data.id);
+    setBoards(boards.filter((board) => board.id !== deleted.id));
     console.log(deleted);
   };
   return (

@@ -1,22 +1,23 @@
 import React, { useState } from "react";
 import "./NewBoardForm.css";
 import { createBoard } from "../../utils/services";
+import { useBoardsContext } from "../../contexts/BoardsContext";
 
 const NewBoardForm = () => {
   const [title, setTitle] = useState("");
   const [category, setCategory] = useState("");
   const [author, setAuthor] = useState("");
+  const { boards, setBoards } = useBoardsContext();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log(title + " " + category + " " + author);
     const board = {
       title,
       category,
       author,
     };
     const res = await createBoard(board);
-    console.log(res);
+    setBoards([res, ...boards]);
   };
   return (
     <>
