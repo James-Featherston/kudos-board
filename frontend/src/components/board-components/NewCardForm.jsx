@@ -1,9 +1,14 @@
 import React, { useState } from "react";
 import "./NewCardForm.css";
+import { searchGifs } from "../../utils/gifService";
+import Gif from "./Gif";
+
 const NewCardForm = () => {
   const [title, setTitle] = useState("");
   const [description, setDesciption] = useState("");
   const [gif, setGif] = useState("");
+  const [showGifs, setShowGifs] = useState(false);
+  const [gifResults, setGifResults] = useState([]);
   const [gifURL, setGifURL] = useState("");
   const [author, setAuthor] = useState("");
 
@@ -12,7 +17,10 @@ const NewCardForm = () => {
     console.log("SUbmitted");
   };
 
-  const handleSearch = () => {
+  const handleSearch = async () => {
+    const gifs = await searchGifs(gif);
+    setGifResults(gifs);
+    setShowGifs(true);
     console.log("Search");
   };
 
@@ -44,6 +52,15 @@ const NewCardForm = () => {
         <button type="button" className="card-btn" onClick={handleSearch}>
           Search
         </button>
+        {showGifs ? (
+          <Gif
+            setShowGifs={setShowGifs}
+            gifResults={gifResults}
+            setGifURL={setGifURL}
+          />
+        ) : (
+          <></>
+        )}
         <input
           type="text"
           value={gifURL}

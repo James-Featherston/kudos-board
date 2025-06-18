@@ -17,7 +17,7 @@ const CardList = ({ boardId }) => {
   };
   useEffect(() => {
     fetchCards();
-  });
+  }, []);
 
   if (cards === null) {
     return <div>Loading Cards...</div>;

@@ -4,12 +4,6 @@ import "./BoardList.css";
 import { useBoardsContext } from "../../contexts/BoardsContext";
 import { getAllBoards } from "../../utils/services";
 
-const cards = [
-  { id: 1, title: "hello", type: "celebration" },
-  { id: 2, title: "hello", type: "thank you" },
-  { id: 3, title: "hello", type: "Inspiration" },
-];
-
 const BoardList = () => {
   const { boards, setBoards } = useBoardsContext();
 
