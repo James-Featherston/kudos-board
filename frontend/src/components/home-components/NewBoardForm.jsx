@@ -1,14 +1,22 @@
 import React, { useState } from "react";
 import "./NewBoardForm.css";
+import { createBoard } from "../../utils/services";
 
 const NewBoardForm = () => {
   const [title, setTitle] = useState("");
   const [category, setCategory] = useState("");
   const [author, setAuthor] = useState("");
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     console.log(title + " " + category + " " + author);
+    const board = {
+      title,
+      category,
+      author,
+    };
+    const res = await createBoard(board);
+    console.log(res);
   };
   return (
     <>
@@ -22,12 +30,15 @@ const NewBoardForm = () => {
           className="input-field"
         />
         <label>Category:</label>
-        <input
-          type="text"
-          value={category}
+        <select
+          className="form-btn"
           onChange={(e) => setCategory(e.target.value)}
-          className="input-field"
-        />
+        >
+          <option value="">Sort By</option>
+          <option value={"Celebration"}>Celebration</option>
+          <option value={"Thank You"}>Thank You</option>
+          <option value={"Inspiration"}>Inspiration</option>
+        </select>
         <label>Author:</label>
         <input
           type="text"

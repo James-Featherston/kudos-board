@@ -15,14 +15,12 @@ datasource db {
 }
 
 model Board {
-  id          Int      @id @default(autoincrement())
-  createdAt   DateTime @default(now())
-  title       String
-  description String
-  category    String
-  image       String
-  author      String
-  cards       Card[]
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  title     String
+  category  String
+  author    String
+  cards     Card[]
 }
 
 model Card {
