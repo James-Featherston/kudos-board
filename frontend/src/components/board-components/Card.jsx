@@ -5,8 +5,10 @@ import { deleteCard } from "../../utils/services";
 import { updateCard } from "../../utils/services";
 import { useCardsContext } from "../../contexts/CardsContext";
 import Modal from "../Modal";
+import { useTheme } from "../../contexts/ThemeContext";
 
 const Card = ({ data }) => {
+  const { theme } = useTheme();
   const [upVotes, setUpVotes] = useState(data.upVotes);
   const { cards, setCards } = useCardsContext();
   const [modal, setModal] = useState(false);
@@ -24,7 +26,11 @@ const Card = ({ data }) => {
 
   return (
     <>
-      <article className="card-container" onClick={() => setModal(true)}>
+      <article
+        className="card-container"
+        style={{ backgroundColor: theme.bgColor, color: theme.color }}
+        onClick={() => setModal(true)}
+      >
         <h3>{data.title}</h3>
         <p>{data.description}</p>
         <img className="card-img" src={data.gif} alt="Card Gif" />

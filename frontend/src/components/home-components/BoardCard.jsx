@@ -4,16 +4,21 @@ import "./BoardCard.css";
 import emptyImg from "../../assets/person.png";
 import { deleteBoard } from "../../utils/services";
 import { useBoardsContext } from "../../contexts/BoardsContext";
+import { useTheme } from "../../contexts/ThemeContext";
 
 const BoardCard = ({ data }) => {
   const navigate = useNavigate();
   const { boards, setBoards } = useBoardsContext();
+  const { theme } = useTheme();
   const handleDelete = async () => {
     const deleted = await deleteBoard(data.id);
     setBoards(boards.filter((board) => board.id !== deleted.id));
   };
   return (
-    <div className="board-card-container">
+    <div
+      className="board-card-container"
+      style={{ backgroundColor: theme.bgColor, color: theme.color }}
+    >
       <img className="board-img" src={emptyImg} alt="Board Image" />
       <h3>{data.title}</h3>
       <h5>{data.category}</h5>

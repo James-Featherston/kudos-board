@@ -4,11 +4,12 @@ import { useParams } from "react-router-dom";
 import "./Board.css";
 import CardList from "../components/board-components/CardList";
 import Modal from "../components/Modal";
-import ChevronLeft from "../assets/chevron-left.webp";
 import { getSingleBoard } from "../utils/services";
 import { CardsProvider } from "../contexts/CardsContext";
+import { useTheme } from "../contexts/ThemeContext";
 
 const Board = () => {
+  const { theme } = useTheme();
   const navigate = useNavigate();
   const [modal, setModal] = useState(false);
   const [board, setBoard] = useState(null);
@@ -26,12 +27,13 @@ const Board = () => {
   }
   return (
     <div className="board-container">
-      <img
-        className="chevron-left"
-        src={ChevronLeft}
-        alt="Return to Home button"
+      <span
+        class="material-symbols-outlined chevron-left"
         onClick={() => navigate("/")}
-      />
+        style={{ color: theme.color }}
+      >
+        chevron_left
+      </span>
       <h2>
         {board?.title} {id}
       </h2>

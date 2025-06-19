@@ -1,8 +1,17 @@
 import React from "react";
 import "./Footer.css";
+import { useTheme } from "../contexts/ThemeContext";
 
 const Footer = () => {
-  return <div className="footer">Footer</div>;
+  const { theme } = useTheme();
+  return (
+    <div
+      className="footer"
+      style={{ backgroundColor: theme.bgColor, color: theme.color }}
+    >
+      Footer
+    </div>
+  );
 };
 
 export default Footer;
