@@ -27,6 +27,7 @@ model Card {
   id          Int       @id @default(autoincrement())
   title       String
   description String
+  pinned      Boolean   @default(false)
   gif         String
   author      String
   upVotes     Int       @default(0)
