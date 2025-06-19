@@ -28,7 +28,7 @@ const Board = () => {
   return (
     <div className="board-container">
       <span
-        class="material-symbols-outlined chevron-left"
+        className="material-symbols-outlined chevron-left"
         onClick={() => navigate("/")}
         style={{ color: theme.color }}
       >

@@ -4,7 +4,7 @@
     border: solid 1px lightgray;
     padding: 10px;
     border-radius: 5px;
-    background-color: tan;
+    position: relative;
 }
 
 .card-img {
@@ -27,4 +27,20 @@ h3, p {
     margin-top: 5px;
     display: flex;
     justify-content: space-between;
+}
+
+.pinned {
+    z-index: -1;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    font-size: 30px;
+}
+
+.pinned.show {
+    z-index: 1;
+}
+
+.card-container:hover .pinned {
+    z-index: 1;
 }

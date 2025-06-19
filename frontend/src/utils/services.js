@@ -71,14 +71,14 @@ const deleteCard = async (cardId) => {
   return await fetchData(path, req);
 };
 
-const updateCard = async (cardId, upVotes) => {
+const updateCard = async (cardId, updates) => {
   const path = `${BASE_URL}/cards/${cardId}`;
   const req = {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ upVotes: upVotes }),
+    body: JSON.stringify(updates),
   };
   return await fetchData(path, req);
 };

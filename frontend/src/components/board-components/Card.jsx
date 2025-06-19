@@ -10,6 +10,7 @@ import { useTheme } from "../../contexts/ThemeContext";
 const Card = ({ data }) => {
   const { theme } = useTheme();
   const [upVotes, setUpVotes] = useState(data.upVotes);
+  const [pinned, setPinned] = useState(data.pinned);
   const { cards, setCards } = useCardsContext();
   const [modal, setModal] = useState(false);
   const handleDelete = async (event) => {
@@ -20,8 +21,25 @@ const Card = ({ data }) => {
 
   const handleUpVote = async (event) => {
     event.stopPropagation();
-    updateCard(data.id, upVotes + 1);
+    await updateCard(data.id, { upVotes: upVotes + 1 });
     setUpVotes(upVotes + 1);
+  };
+
+  const handlePin = async (event) => {
+    event.stopPropagation();
+    const pinnedState = pinned;
+    const newCard = await updateCard(data.id, { pinned: !pinnedState });
+    console.log(newCard);
+    setPinned(!pinnedState);
+    setCards((prev) => {
+      const clicked = prev.find((card) => card.id === data.id);
+      const rest = prev.filter((card) => card.id !== data.id);
+      if (pinnedState) {
+        return [...rest, clicked];
+      } else {
+        return [clicked, ...rest];
+      }
+    });
   };
 
   return (
@@ -43,6 +61,12 @@ const Card = ({ data }) => {
             <h6>Delete</h6>
           </button>
         </div>
+        <span
+          className={`material-symbols-outlined pinned ${pinned ? "show" : ""}`}
+          onClick={handlePin}
+        >
+          keep
+        </span>
       </article>
       {modal ? <Modal handleClose={setModal} cardData={data} /> : <></>}
     </>
