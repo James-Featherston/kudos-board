@@ -56,8 +56,7 @@ exports.getBoardCards = async (boardId) => {
   const sorted = cards.sort((a, b) => {
     if (a.pinned && b.pinned) {
       return (
-        new Date(b.pinnedTime).getTime() -
-        new DataTransfer(a.pinnedTime).getTime()
+        new Date(b.pinnedTime).getTime() - new Date(a.pinnedTime).getTime()
       );
     } else if (!a.pinned && !b.pinned) {
       return b.upVotes - a.upVotes;
