@@ -38,6 +38,7 @@ const NewCardForm = ({ boardId }) => {
       <h2>Create a New Card</h2>
       <form className="card-form" onSubmit={handleSubmit}>
         <input
+          required
           type="text"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
@@ -45,6 +46,7 @@ const NewCardForm = ({ boardId }) => {
           className="input-field"
         />
         <input
+          required
           type="text"
           value={description}
           onChange={(e) => setDesciption(e.target.value)}
@@ -52,6 +54,7 @@ const NewCardForm = ({ boardId }) => {
           className="input-field"
         />
         <input
+          required
           type="text"
           value={gif}
           onChange={(e) => setGif(e.target.value)}
@@ -71,6 +74,7 @@ const NewCardForm = ({ boardId }) => {
           <></>
         )}
         <input
+          required
           type="text"
           value={gifURL}
           onChange={(e) => setGifURL(e.target.value)}

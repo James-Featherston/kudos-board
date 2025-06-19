@@ -85,6 +85,23 @@ const updateCard = async (cardId, upVotes) => {
 
 }
 
+const createComment = async (comment) => {
+    const path = `${BASE_URL}/comments`
+    const req = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(comment)
+    }
+    return await fetchData(path, req)
+}
+
+const getCommentsWithCardId = async (cardId) => {
+    const path = `${BASE_URL}/cards/${cardId}/comments`
+    return await fetchData(path, basic_get_request)
+}
+
 
 const fetchData = async (path, request) => {
     let data = null
@@ -100,4 +117,4 @@ const fetchData = async (path, request) => {
     return data
 }
 
-export {getAllBoards, getSingleBoard, getCardsWithBoardId, createBoard, deleteBoard, createCard, deleteCard, updateCard}
+export {getAllBoards, getSingleBoard, getCardsWithBoardId, createBoard, deleteBoard, createCard, deleteCard, updateCard, createComment, getCommentsWithCardId}

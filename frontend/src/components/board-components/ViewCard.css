@@ -1,0 +1,36 @@
+h1, h2{
+    margin: 0px;
+}
+
+.card-data {
+    display: flex;
+}
+
+.card-text {
+    margin-left: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-gif {
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.card-modal-container {
+    width: 100%;
+    overflow: auto;
+}
+
+.comment-form {
+    width: 100%;
+    display: flex;
+}
+
+.new-comment {
+    flex-grow: 1;
+}
+.new-author {
+    width: 100px;
+}

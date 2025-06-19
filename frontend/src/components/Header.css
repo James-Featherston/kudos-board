@@ -2,6 +2,7 @@
     width: 100vw;
     background-color: tan;
     height: 140px;
+    min-height: 140px;
     display: flex;
     flex-direction: column;
     align-items: center;

@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 import "./BoardCard.css";
 import emptyImg from "../../assets/person.png";
@@ -11,7 +11,6 @@ const BoardCard = ({ data }) => {
   const handleDelete = async () => {
     const deleted = await deleteBoard(data.id);
     setBoards(boards.filter((board) => board.id !== deleted.id));
-    console.log(deleted);
   };
   return (
     <div className="board-card-container">

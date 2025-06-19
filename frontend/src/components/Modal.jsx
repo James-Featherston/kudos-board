@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import "./Modal.css";
 import NewBoardForm from "./home-components/NewBoardForm";
 import NewCardForm from "./board-components/NewCardForm";
+import ViewCard from "./board-components/ViewCard";
 
-const Modal = ({ modalType, handleClose, boardId }) => {
+const Modal = ({ modalType, handleClose, boardId, cardData }) => {
   return (
     <div onClick={() => handleClose(false)} className="modal-background">
       <article
@@ -15,8 +16,10 @@ const Modal = ({ modalType, handleClose, boardId }) => {
         </span>
         {modalType === "Home" ? (
           <NewBoardForm />
-        ) : (
+        ) : modalType === "NewCard" ? (
           <NewCardForm boardId={boardId} />
+        ) : (
+          <ViewCard cardData={cardData} />
         )}
       </article>
     </div>

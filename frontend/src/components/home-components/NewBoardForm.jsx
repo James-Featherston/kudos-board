@@ -25,6 +25,7 @@ const NewBoardForm = () => {
       <form className="board-form" onSubmit={handleSubmit}>
         <label>Title:</label>
         <input
+          required
           type="text"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
@@ -32,10 +33,13 @@ const NewBoardForm = () => {
         />
         <label>Category:</label>
         <select
+          required
           className="form-btn"
           onChange={(e) => setCategory(e.target.value)}
         >
-          <option value="">Sort By</option>
+          <option selected disabled value="">
+            Sort By
+          </option>
           <option value={"Celebration"}>Celebration</option>
           <option value={"Thank You"}>Thank You</option>
           <option value={"Inspiration"}>Inspiration</option>

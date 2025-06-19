@@ -38,7 +38,11 @@ const Board = () => {
       <button onClick={() => setModal(true)}>Create a Card</button>
       <CardsProvider>
         <CardList boardId={id} />
-        {modal ? <Modal handleClose={setModal} boardId={id} /> : <></>}
+        {modal ? (
+          <Modal handleClose={setModal} boardId={id} modalType={"NewCard"} />
+        ) : (
+          <></>
+        )}
       </CardsProvider>
     </div>
   );
