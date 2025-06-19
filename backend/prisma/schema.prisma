@@ -28,6 +28,7 @@ model Card {
   title       String
   description String
   pinned      Boolean   @default(false)
+  pinnedTime  DateTime  @default(now())
   gif         String
   author      String
   upVotes     Int       @default(0)

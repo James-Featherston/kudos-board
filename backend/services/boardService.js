@@ -49,12 +49,21 @@ exports.deleteBoard = async (boardId) => {
 exports.getBoardCards = async (boardId) => {
   const cards = await prisma.card.findMany({
     where: { boardId: boardId },
-    orderBy: {
-      upVotes: "desc",
-    },
   });
   if (cards === null) {
     throw Error;
   }
-  return cards;
+  const sorted = cards.sort((a, b) => {
+    if (a.pinned && b.pinned) {
+      return (
+        new Date(b.pinnedTime).getTime() -
+        new DataTransfer(a.pinnedTime).getTime()
+      );
+    } else if (!a.pinned && !b.pinned) {
+      return b.upVotes - a.upVotes;
+    } else {
+      return a.pinned ? -1 : 1;
+    }
+  });
+  return sorted;
 };
