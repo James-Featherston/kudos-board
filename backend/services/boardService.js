@@ -48,7 +48,10 @@ exports.deleteBoard = async (boardId) => {
 
 exports.getBoardCards = async (boardId) => {
     const cards = await prisma.card.findMany({
-        where: {boardId: boardId}
+        where: {boardId: boardId},
+        orderBy: {
+            upVotes: 'desc'
+        }
     })
     if (cards === null) {
         throw Error
