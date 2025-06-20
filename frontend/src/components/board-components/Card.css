@@ -8,7 +8,7 @@
 }
 
 .card-img {
-    width: 100%;
+    width: 225px;
     max-height: 300px;
 }
 
@@ -27,6 +27,7 @@ h3, p {
     margin-top: 5px;
     display: flex;
     justify-content: space-between;
+    width: 100%;
 }
 
 .pinned {
@@ -43,4 +44,19 @@ h3, p {
 
 .card-container:hover .pinned {
     z-index: 1;
+}
+
+.card-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.author-text {
+    flex-grow: 1;
+}
+
+.title-text {
+    max-width: 75%;
 }

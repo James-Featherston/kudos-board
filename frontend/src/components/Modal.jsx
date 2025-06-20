@@ -12,15 +12,15 @@ const Modal = ({ modalType, handleClose, boardId, cardData }) => {
       <article
         onClick={(event) => event.stopPropagation()}
         className="modal-container"
-        style={{ backgroundColor: theme.bgColor, color: theme.color }}
+        style={{ ...theme }}
       >
         <span className="close-btn" onClick={() => handleClose(false)}>
           x
         </span>
         {modalType === "Home" ? (
-          <NewBoardForm />
+          <NewBoardForm handleClose={handleClose} />
         ) : modalType === "NewCard" ? (
-          <NewCardForm boardId={boardId} />
+          <NewCardForm boardId={boardId} handleClose={handleClose} />
         ) : (
           <ViewCard cardData={cardData} />
         )}

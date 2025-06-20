@@ -14,6 +14,7 @@ const BoardList = () => {
   useEffect(() => {
     fetchBoards();
   }, []);
+
   if (!boards) {
     return <h1>Loading...</h1>;
   }

@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import tempImg from "../../assets/person.png";
 import "./Card.css";
 import { deleteCard } from "../../utils/services";
 import { updateCard } from "../../utils/services";
@@ -13,6 +12,7 @@ const Card = ({ data }) => {
   const [pinned, setPinned] = useState(data.pinned);
   const { cards, setCards } = useCardsContext();
   const [modal, setModal] = useState(false);
+
   const handleDelete = async (event) => {
     event.stopPropagation();
     const delCard = await deleteCard(data.id);
@@ -46,13 +46,17 @@ const Card = ({ data }) => {
     <>
       <article
         className="card-container"
-        style={{ backgroundColor: theme.bgColor, color: theme.color }}
+        style={{ ...theme }}
         onClick={() => setModal(true)}
       >
-        <h3>{data.title}</h3>
-        <p>{data.description}</p>
+        <div className="title-text">
+          <h3>{data.title}</h3>
+          <p>{data.description}</p>
+        </div>
         <img className="card-img" src={data.gif} alt="Card Gif" />
-        <p>{data.author}</p>
+        <div className="author-text">
+          <p>{data.author}</p>
+        </div>
         <div className="card-btns-container">
           <button onClick={handleUpVote} className="card-button">
             <h6>Upvote: {upVotes}</h6>

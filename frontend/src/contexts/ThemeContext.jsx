@@ -1,12 +1,16 @@
 import { createContext, useContext, useState } from "react";
 
 const lightTheme = {
-  bgColor: "tan",
+  background: "#EEAECA",
+  background:
+    "radial-gradient(circle, rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%)",
   color: "black",
 };
 
 const darkTheme = {
-  bgColor: "saddlebrown",
+  background: "#3F5EFB",
+  background:
+    "radial-gradient(circle,rgba(63, 94, 251, 1) 0%, rgba(252, 70, 107, 1) 100%)",
   color: "white",
 };
 

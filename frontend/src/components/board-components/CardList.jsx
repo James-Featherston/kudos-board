@@ -2,7 +2,6 @@ import React from "react";
 import Card from "./Card";
 import "./CardList.css";
 import { useEffect } from "react";
-import { useState } from "react";
 import { getCardsWithBoardId } from "../../utils/services";
 import { useCardsContext } from "../../contexts/CardsContext";
 

@@ -3,15 +3,15 @@ import "./Header.css";
 import { useTheme } from "../contexts/ThemeContext";
 
 const Header = () => {
-  const { toggleTheme, theme } = useTheme();
+  const { theme, toggleTheme } = useTheme();
   return (
-    <div
-      className="header"
-      style={{ backgroundColor: theme.bgColor, color: theme.color }}
-    >
+    <div className="header" style={{ ...theme }}>
       <h1>Kudos Board</h1>
-      <button style={{ marginLeft: "10px" }} onClick={() => toggleTheme()}>
-        Toggle Theme
+      <button
+        style={{ marginLeft: "15px", padding: "7px 15px" }}
+        onClick={() => toggleTheme()}
+      >
+        {theme.color === "black" ? "Light Mode" : "Dark Mode"}
       </button>
     </div>
   );

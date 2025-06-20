@@ -5,10 +5,7 @@ import { useTheme } from "../contexts/ThemeContext";
 const Footer = () => {
   const { theme } = useTheme();
   return (
-    <div
-      className="footer"
-      style={{ backgroundColor: theme.bgColor, color: theme.color }}
-    >
+    <div className="footer" style={{ ...theme }}>
       Footer
     </div>
   );

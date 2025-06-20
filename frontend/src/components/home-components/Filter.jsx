@@ -16,55 +16,35 @@ const Filter = (props) => {
       <button
         onClick={handleFilter}
         value={""}
-        style={
-          props.filterType === ""
-            ? { backgroundColor: theme.bgColor, color: theme.color }
-            : {}
-        }
+        style={props.filterType === "" ? { ...theme } : {}}
       >
         All
       </button>
       <button
         onClick={handleFilter}
         value={"Recent"}
-        style={
-          props.filterType === "Recent"
-            ? { backgroundColor: theme.bgColor, color: theme.color }
-            : {}
-        }
+        style={props.filterType === "Recent" ? { ...theme } : {}}
       >
         Recent
       </button>
       <button
         onClick={handleFilter}
         value={"Celebration"}
-        style={
-          props.filterType === "Celebration"
-            ? { backgroundColor: theme.bgColor, color: theme.color }
-            : {}
-        }
+        style={props.filterType === "Celebration" ? { ...theme } : {}}
       >
         Celebration
       </button>
       <button
         onClick={handleFilter}
         value={"Thank You"}
-        style={
-          props.filterType === "Thank You"
-            ? { backgroundColor: theme.bgColor, color: theme.color }
-            : {}
-        }
+        style={props.filterType === "Thank You" ? { ...theme } : {}}
       >
         Thank You
       </button>
       <button
         onClick={handleFilter}
         value={"Inspiration"}
-        style={
-          props.filterType === "Inspiration"
-            ? { backgroundColor: theme.bgColor, color: theme.color }
-            : {}
-        }
+        style={props.filterType === "Inspiration" ? { ...theme } : {}}
       >
         Inspiration
       </button>

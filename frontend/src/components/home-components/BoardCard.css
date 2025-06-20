@@ -6,6 +6,10 @@
     border-radius: 5px;
     flex-grow: 1;
     max-width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .board-img {
@@ -21,4 +25,14 @@
 h6, h5, h3 {
     margin: 0px;
     padding: 0px;
+}
+
+.board-text {
+    width: 225px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    margin-top: 5px;
 }

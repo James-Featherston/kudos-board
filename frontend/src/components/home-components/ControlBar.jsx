@@ -15,7 +15,7 @@ const ControlBar = ({ openModal }) => {
   };
 
   return (
-    <section>
+    <section style={{ marginTop: "10px" }}>
       <Search changeData={changeData} query={query} setQuery={setQuery} />
       <Filter
         changeData={changeData}

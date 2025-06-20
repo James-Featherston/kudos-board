@@ -4,11 +4,10 @@ import BoardList from "../components/home-components/BoardList";
 import ControlBar from "../components/home-components/ControlBar";
 import Modal from "../components/Modal";
 import { BoardsProvider } from "../contexts/BoardsContext";
+import { useTheme } from "../contexts/ThemeContext";
 
 const Home = () => {
   const [modal, setModal] = useState(false);
-  // Need an initial list
-  // Need a display list
 
   return (
     <div className="home-container">
