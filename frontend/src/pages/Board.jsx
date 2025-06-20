@@ -34,9 +34,7 @@ const Board = () => {
       >
         chevron_left
       </span>
-      <h2 style={{ paddingTop: "10px" }}>
-        {board?.title} {id}
-      </h2>
+      <h2 style={{ paddingTop: "10px" }}>{board?.title}</h2>
       <button onClick={() => setModal(true)}>Create a Card</button>
       <CardsProvider>
         <CardList boardId={id} />
