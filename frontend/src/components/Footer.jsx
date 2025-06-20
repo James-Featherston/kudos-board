@@ -5,9 +5,9 @@ import { useTheme } from "../contexts/ThemeContext";
 const Footer = () => {
   const { theme } = useTheme();
   return (
-    <div className="footer" style={{ ...theme }}>
-      Footer
-    </div>
+    <footer className="footer" style={{ ...theme }}>
+      Welcome to the Kudos board
+    </footer>
   );
 };
 
