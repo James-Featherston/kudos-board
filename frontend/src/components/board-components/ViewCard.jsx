@@ -15,7 +15,6 @@ const ViewCard = ({ cardData }) => {
       author,
       message: newComment,
     });
-    console.log(resComment);
     setComments([resComment, ...comments]);
   };
 

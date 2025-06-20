@@ -1,5 +1,7 @@
 
-
+.board-container {
+    height: 100%;
+}
 .chevron-left {
     position: fixed;
     left: 20px;

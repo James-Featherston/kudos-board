@@ -1,5 +1,4 @@
 const BASE_URL = "https://kudos-board-backend-ta4c.onrender.com";
-// const BASE_URL = "http://localhost:3000"
 const basic_get_request = {
   method: "GET",
 };

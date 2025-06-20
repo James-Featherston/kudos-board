@@ -9,7 +9,7 @@ import { CardsProvider } from "../contexts/CardsContext";
 import { useTheme } from "../contexts/ThemeContext";
 
 const Board = () => {
-  const { theme } = useTheme();
+  const { theme, secondTheme } = useTheme();
   const navigate = useNavigate();
   const [modal, setModal] = useState(false);
   const [board, setBoard] = useState(null);
@@ -26,7 +26,7 @@ const Board = () => {
     return <h1>Loading...</h1>;
   }
   return (
-    <div className="board-container">
+    <div className="board-container" style={{ ...secondTheme }}>
       <span
         className="material-symbols-outlined chevron-left"
         onClick={() => navigate("/")}
@@ -34,7 +34,7 @@ const Board = () => {
       >
         chevron_left
       </span>
-      <h2 style={{ marginTop: "10px" }}>
+      <h2 style={{ paddingTop: "10px" }}>
         {board?.title} {id}
       </h2>
       <button onClick={() => setModal(true)}>Create a Card</button>

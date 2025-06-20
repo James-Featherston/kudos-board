@@ -9,7 +9,6 @@ const searchGifs = async (search_param) => {
       throw new Error("Failed to fetch data");
     }
     data = await response.json();
-    console.log(data);
   } catch (error) {
     console.error(error);
   }

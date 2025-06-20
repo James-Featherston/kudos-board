@@ -1,17 +1,25 @@
 import { createContext, useContext, useState } from "react";
 
 const lightTheme = {
-  background: "#EEAECA",
   background:
     "radial-gradient(circle, rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%)",
   color: "black",
 };
 
 const darkTheme = {
-  background: "#3F5EFB",
   background:
     "radial-gradient(circle,rgba(63, 94, 251, 1) 0%, rgba(252, 70, 107, 1) 100%)",
   color: "white",
+};
+
+const darkBackground = {
+  background: "black",
+  color: "white",
+};
+
+const lightBackground = {
+  background: "aliceblue",
+  color: "black",
 };
 
 const ThemeContext = createContext();
@@ -19,10 +27,11 @@ const ThemeContext = createContext();
 const ThemeProvider = ({ children }) => {
   const [isLight, setIsLight] = useState(true);
   const theme = isLight ? lightTheme : darkTheme;
+  const secondTheme = isLight ? lightBackground : darkBackground;
   const toggleTheme = () => setIsLight(!isLight);
 
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+    <ThemeContext.Provider value={{ theme, secondTheme, toggleTheme }}>
       {children}
     </ThemeContext.Provider>
   );

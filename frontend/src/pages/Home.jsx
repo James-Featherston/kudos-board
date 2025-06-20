@@ -8,9 +8,10 @@ import { useTheme } from "../contexts/ThemeContext";
 
 const Home = () => {
   const [modal, setModal] = useState(false);
+  const { secondTheme } = useTheme();
 
   return (
-    <div className="home-container">
+    <div className="home-container" style={{ ...secondTheme }}>
       <BoardsProvider>
         <ControlBar openModal={setModal} />
         <BoardList />

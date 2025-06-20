@@ -29,7 +29,6 @@ const Card = ({ data }) => {
     event.stopPropagation();
     const pinnedState = pinned;
     const newCard = await updateCard(data.id, { pinned: !pinnedState });
-    console.log(newCard);
     setPinned(!pinnedState);
     setCards((prev) => {
       const clicked = prev.find((card) => card.id === data.id);
