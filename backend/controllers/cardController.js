@@ -4,7 +4,6 @@ exports.getCardById = async (req, res) => {
   try {
     const cardId = parseInt(req.params.cardId);
     const card = await cardService.getSingleCard(cardId);
-    console.log(card);
     res.json(card);
   } catch (error) {
     res.status(404).json({ message: "Card not found" });

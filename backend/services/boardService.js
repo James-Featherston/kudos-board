@@ -32,7 +32,6 @@ exports.createBoard = async (newBoard) => {
   if (resBoard === null) {
     throw Error;
   }
-  console.log(resBoard);
   return resBoard;
 };
 
