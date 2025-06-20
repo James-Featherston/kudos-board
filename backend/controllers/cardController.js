@@ -1,5 +1,6 @@
 const cardService = require("../services/cardService");
 
+/* Gets a card by id */
 exports.getCardById = async (req, res) => {
   try {
     const cardId = parseInt(req.params.cardId);
@@ -10,6 +11,7 @@ exports.getCardById = async (req, res) => {
   }
 };
 
+/* Creates a card */
 exports.createCard = async (req, res) => {
   try {
     if (
@@ -31,6 +33,7 @@ exports.createCard = async (req, res) => {
   }
 };
 
+/* Delets a card by id */
 exports.deleteCard = async (req, res) => {
   try {
     const cardId = parseInt(req.params.cardId);
@@ -41,6 +44,7 @@ exports.deleteCard = async (req, res) => {
   }
 };
 
+/* Gets comments by the card id */
 exports.getCommentsByCardId = async (req, res) => {
   try {
     const cardId = parseInt(req.params.cardId);
@@ -51,6 +55,7 @@ exports.getCommentsByCardId = async (req, res) => {
   }
 };
 
+/* Updates a card based on body input */
 exports.updateCard = async (req, res) => {
   try {
     const cardId = parseInt(req.params.cardId);

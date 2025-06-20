@@ -2,6 +2,8 @@ import { createContext, useContext, useState } from "react";
 
 const BoardsContext = createContext();
 
+/* Creates a context for the boards */
+
 const BoardsProvider = ({ children }) => {
   const [boards, setBoards] = useState(null);
 

@@ -1,5 +1,6 @@
 const commentService = require("../services/commentService");
 
+/* Create a new comment */
 exports.createComment = async (req, res) => {
   try {
     if (!req.body.message || !req.body.cardId) {

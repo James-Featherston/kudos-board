@@ -7,6 +7,7 @@ import Footer from "./components/Footer";
 import "./App.css";
 import { ThemeProvider } from "./contexts/ThemeContext";
 
+/* The main entry point for the app */
 function App() {
   return (
     <ThemeProvider>

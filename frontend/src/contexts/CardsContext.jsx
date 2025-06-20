@@ -1,5 +1,7 @@
 import { createContext, useContext, useState } from "react";
 
+/* Creates a context for the cards */
+
 const CardsContext = createContext();
 
 const CardsProvider = ({ children }) => {

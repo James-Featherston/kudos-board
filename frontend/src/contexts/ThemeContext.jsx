@@ -22,6 +22,8 @@ const lightBackground = {
   color: "black",
 };
 
+/* Creates a context for light and dark mode */
+
 const ThemeContext = createContext();
 
 const ThemeProvider = ({ children }) => {

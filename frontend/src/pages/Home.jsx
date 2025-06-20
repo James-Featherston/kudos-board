@@ -6,6 +6,7 @@ import Modal from "../components/Modal";
 import { BoardsProvider } from "../contexts/BoardsContext";
 import { useTheme } from "../contexts/ThemeContext";
 
+/* The home page */
 const Home = () => {
   const [modal, setModal] = useState(false);
   const { secondTheme } = useTheme();

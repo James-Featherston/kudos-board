@@ -3,6 +3,9 @@ const basic_get_request = {
   method: "GET",
 };
 
+/* Handles the main API calls for the program */
+/* Every function defines the CRUD type, URL, and what should be in the body */
+
 const getAllBoards = async (query, filterType) => {
   const filters = {};
   if (query) {

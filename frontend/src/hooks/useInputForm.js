@@ -1,5 +1,6 @@
 import { useState } from "react";
 
+/* Used for the forms */
 const useFormInput = (initialValue) => {
   const [value, setValue] = useState(initialValue);
 

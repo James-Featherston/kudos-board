@@ -1,5 +1,6 @@
 const prisma = require("../prisma.js");
 
+/* Queries the db for all the baords */
 exports.getAllBoards = async (filters, limit) => {
   return await prisma.board.findMany({
     take: limit,
@@ -15,6 +16,7 @@ exports.getAllBoards = async (filters, limit) => {
   });
 };
 
+/* Queries the db for a single board */
 exports.getSingleBoard = async (boardId) => {
   const board = await prisma.board.findUnique({
     where: { id: boardId },
@@ -25,6 +27,7 @@ exports.getSingleBoard = async (boardId) => {
   return board;
 };
 
+/* Create a new board in the db */
 exports.createBoard = async (newBoard) => {
   const resBoard = await prisma.board.create({
     data: newBoard,
@@ -35,6 +38,7 @@ exports.createBoard = async (newBoard) => {
   return resBoard;
 };
 
+/* Deletes a board in the db */
 exports.deleteBoard = async (boardId) => {
   const delBoard = await prisma.board.delete({
     where: { id: boardId },
@@ -45,6 +49,7 @@ exports.deleteBoard = async (boardId) => {
   return delBoard;
 };
 
+/* Gets the cards associated with a board in the db */
 exports.getBoardCards = async (boardId) => {
   const cards = await prisma.card.findMany({
     where: { boardId: boardId },

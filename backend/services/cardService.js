@@ -1,5 +1,6 @@
 const prisma = require("../prisma.js");
 
+/* Gets a single card in the db */
 exports.getSingleCard = async (cardId) => {
   const card = await prisma.card.findUnique({
     where: { id: cardId },
@@ -10,6 +11,7 @@ exports.getSingleCard = async (cardId) => {
   return card;
 };
 
+/* Creates a card in the db */
 exports.createCard = async (newCard) => {
   const resCard = await prisma.card.create({
     data: newCard,
@@ -20,6 +22,7 @@ exports.createCard = async (newCard) => {
   return resCard;
 };
 
+/* Deletes a card in the db */
 exports.deleteCard = async (cardId) => {
   const delCard = await prisma.card.delete({
     where: { id: cardId },
@@ -30,6 +33,7 @@ exports.deleteCard = async (cardId) => {
   return delCard;
 };
 
+/* Get comments for a card in the db */
 exports.getCardComments = async (cardId) => {
   const comments = await prisma.comment.findMany({
     where: { cardId: cardId },
@@ -40,6 +44,7 @@ exports.getCardComments = async (cardId) => {
   return comments;
 };
 
+/* Updates a card in the db */
 exports.updateCard = async (cardId, newData) => {
   const card = await prisma.card.update({
     where: { id: cardId },

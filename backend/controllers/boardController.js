@@ -1,5 +1,6 @@
 const boardService = require("../services/boardService");
 
+/* Gets all the boards */
 exports.getAllBoards = async (req, res) => {
   try {
     const filters = {};
@@ -23,6 +24,7 @@ exports.getAllBoards = async (req, res) => {
   }
 };
 
+/* Get a board by the board id */
 exports.getBoardById = async (req, res) => {
   try {
     const boardId = parseInt(req.params.boardId);
@@ -33,6 +35,7 @@ exports.getBoardById = async (req, res) => {
   }
 };
 
+/* Create a board */
 exports.createBoard = async (req, res) => {
   try {
     if (!req.body.title || !req.body.category) {
@@ -48,6 +51,7 @@ exports.createBoard = async (req, res) => {
   }
 };
 
+/* Delete a board by id*/
 exports.deleteBoard = async (req, res) => {
   try {
     const boardId = parseInt(req.params.boardId);
@@ -58,6 +62,7 @@ exports.deleteBoard = async (req, res) => {
   }
 };
 
+/* Get cards for a board by the boardId */
 exports.getCardsByBoardId = async (req, res) => {
   try {
     const boardId = parseInt(req.params.boardId);

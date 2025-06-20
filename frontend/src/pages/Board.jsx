@@ -8,6 +8,8 @@ import { getSingleBoard } from "../utils/services";
 import { CardsProvider } from "../contexts/CardsContext";
 import { useTheme } from "../contexts/ThemeContext";
 
+/* The boards page */
+
 const Board = () => {
   const { theme, secondTheme } = useTheme();
   const navigate = useNavigate();
