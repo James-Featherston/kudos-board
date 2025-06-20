@@ -8,7 +8,7 @@ const lightTheme = {
 
 const darkTheme = {
   background:
-    "radial-gradient(circle,rgba(63, 94, 251, 1) 0%, rgba(252, 70, 107, 1) 100%)",
+    "radial-gradient(circle,rgba(63, 94, 251, 1) 0%, rgb(217, 45, 82) 100%)",
   color: "white",
 };
 
